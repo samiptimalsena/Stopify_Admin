@@ -61,6 +61,7 @@ class Database extends Component{
     render(){
         return(
             <div>
+                <h1>Database Upload</h1>
                 <form>
                     <label>Album:   </label>
                     <input type='text' placeholder='Album' value={this.state.albumName} onChange={this.albumChange}></input>
