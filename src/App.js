@@ -7,6 +7,7 @@ import Uploader from './component/imageUploader/uploader.js'
 function App() {
   return (
     <div className="App">
+      <h1>okay</h1>
      <Uploader/>
     </div>
   );
