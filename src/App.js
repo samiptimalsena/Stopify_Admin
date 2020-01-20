@@ -1,16 +1,20 @@
 import React from "react";
 import "./App.css";
-//import UploaderImage from "./component/imageUploader";
-//import Database from './firebase/database.js'
-import Uploader from './component/imageUploader/uploader.js'
+import Uploader from './component/uploader.js'
+import Login from './firebase/Login.js'
+import {BrowserRouter} from 'react-router-dom'
+import {AuthProvider} from './Auth/auth.js'
+import PrivateRoute from './routes/privateRoute.js'
 
 function App() {
-  return (
-    <div className="App">
-      <h1>okay</h1>
-     <Uploader/>
-    </div>
-  );
+  return(
+  <AuthProvider>
+    <BrowserRouter>
+      <PrivateRoute exact path='/' component={Uploader}/>
+      <Login/>
+    </BrowserRouter>
+  </AuthProvider>
+)
 }
 
 export default App;

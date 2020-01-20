@@ -2,7 +2,7 @@ import * as firebase from 'firebase/app'
 import  'firebase/storage'
 import 'firebase/firestore'
 
-const app= firebase.initializeApp({
+const app=firebase.initializeApp({
     apiKey: "AIzaSyDKBmvkie7F8AHWPUJDF0_7jw6if3lcEQY",
     authDomain: "ghar4257.firebaseapp.com",
     databaseURL: "https://ghar4257.firebaseio.com",
@@ -16,4 +16,8 @@ const app= firebase.initializeApp({
 const storage=app.storage();
 const storageRef=storage.ref();
 const fireStore=app.firestore();
+
+
+
+
 export {storageRef,fireStore,storage,app as default}

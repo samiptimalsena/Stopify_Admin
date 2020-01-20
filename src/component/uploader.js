@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import {storageRef } from "../../firebase/firebase.js";
-import {fireStore as db}  from '../../firebase/firebase.js'
-
+import {storageRef } from "../firebase/firebase.js";
+import {fireStore as db}  from '../firebase/firebase.js'
+import {handleLogout} from '../firebase/direct.js'
+import {Link} from 'react-router-dom'
 var image_url;
 
 class UploaderImage extends Component {
@@ -201,6 +202,9 @@ class UploaderImage extends Component {
                 <input type='submit' value='Submit' onClick={this.handleClick} /> 
                 <p>upload is {this.state.music_progress}%done</p> 
             </div>
+            <button onClick={handleLogout} >
+                <Link to='/'>LogOut</Link>
+                </button>
             </div>
         )
     }
