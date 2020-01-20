@@ -12,6 +12,7 @@ class Direct extends Component{
         console.log("SIGNED IN")
         console.log(token)
         }).catch(function(error) {
+            console.log(error)
             console.log("error") 
         });
         
