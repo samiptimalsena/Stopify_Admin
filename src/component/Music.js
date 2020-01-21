@@ -16,18 +16,12 @@ class Music extends Component{
         if(!querySnapshot.empty)
         {
         querySnapshot.forEach(function(doc) {
-            var h=document.createElement("h")
-            h.innerHTML="Your music are"
-            document.body.appendChild(h)
-            var p=document.createElement('p')          
-            p.innerHTML=doc.data().name
-            document.body.appendChild(p)
+            document.getElementById("content").innerHTML=doc.data().name;
         });
     }
     else{
-        var p1=document.createElement('p')
-        p1.innerHTML="Sorry You have no Upload"
-        document.body.appendChild(p1)
+        console.log("xaina")
+        document.getElementById("content").innerHTML="Soryy, You have no Upload. Please Upload some music to see it here!!"
     }})
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -37,6 +31,8 @@ class Music extends Component{
         return(
             <div>
                  <button onClick={this.showMusic}>Show My Music</button>
+                 <h1>Your music are:</h1>
+                 <p id="content"></p>
             </div>
             )
     }
