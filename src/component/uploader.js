@@ -21,6 +21,7 @@ class UploaderImage extends Component {
             artistName:'',
             genreName:'',
             songName:''
+            
         }
         
         this.handleChange=this.handleChange.bind(this)
@@ -122,7 +123,8 @@ class UploaderImage extends Component {
                             audioURL:downloadURL,
                             genre:this.state.genreName,
                             imageURL:image_url,
-                            name:this.state.songName
+                            name:this.state.songName,
+                            uid:this.props.userId
                         })
                         .then(function(docRef) {
                             console.log("Document written with ID: ", docRef.id);
@@ -167,6 +169,7 @@ class UploaderImage extends Component {
         console.log(this.state.genreName)
         console.log(this.state.songName)
     }
+    
     render(){
         return(
             <div>
@@ -185,7 +188,7 @@ class UploaderImage extends Component {
                 <h1>Database Upload</h1>
                 <form>
                     <label>Album:   </label>
-                    <input type='text' placeholder='Album' value={this.state.albumName} onChange={this.albumChange}></input>
+                    <input type='text' placeholder='Album' value={this.state.albumName} onChange={this.albumChange}></input>    
                     <br/>
                     <label>Artist:   </label>
                     <input type='text' placeholder='Artist' value={this.state.artistName} onChange={this.artistChange}></input>

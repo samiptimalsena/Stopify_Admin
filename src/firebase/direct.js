@@ -23,7 +23,7 @@ class Direct extends Component{
             <h1>Welcome to Stopify-Admin</h1>
             <p>Login to add Music</p>
             <button onClick={this.click} id='ttt'>
-                <Link to='/home'>
+                <Link to='/'>
                     Google Login
                 </Link>
                 </button>
