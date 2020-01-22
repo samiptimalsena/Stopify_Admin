@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {fireStore as db} from '../firebase/firebase.js'
+import {fireStore as db} from '../../firebase/firebase.js'
 
 
 

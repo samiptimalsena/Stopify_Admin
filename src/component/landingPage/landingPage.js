@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import {Redirect} from 'react-router-dom'
-import {AuthContext} from '../Auth/auth.js'
+import {AuthContext} from '../../Auth/auth.js'
 import Direct from './direct.js'
 
 export default ()=>{

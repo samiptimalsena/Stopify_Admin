@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
-import app from './firebase.js'
+import app from '../../firebase/firebase.js'
 import 'firebase/auth'
 import * as firebase from 'firebase/app'
 import {Link} from 'react-router-dom'
+
 
 class Direct extends Component{
     click=async()=>{
@@ -26,7 +27,7 @@ class Direct extends Component{
                 <Link to='/'>
                     Google Login
                 </Link>
-                </button>
+                </button>  
                 </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react'
-import {handleLogout} from '../firebase/direct.js'
+import {handleLogout} from './landingPage/direct.js'
 import {Link} from 'react-router-dom'
+
 
 
 export default ()=>{

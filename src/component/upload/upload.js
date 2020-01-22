@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {AuthContext} from '../Auth/auth.js'
+import {AuthContext} from '../../Auth/auth.js'
 import Uploader from './uploader.js'
 class Upload extends Component{
     render(){
