@@ -1,5 +1,5 @@
 import React from 'react'
-import {handleLogout} from './landingPage/direct.js'
+import {handleLogout} from '../firebase/login.js'
 import {Link} from 'react-router-dom'
 
 

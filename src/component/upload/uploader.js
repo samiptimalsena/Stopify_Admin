@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {storageRef } from "../../firebase/firebase.js";
 import {fireStore as db}  from '../../firebase/firebase.js'
-import {handleLogout} from '../landingPage/direct.js'
+import {handleLogout} from '../../firebase/login.js'
 import {Link} from 'react-router-dom'
 var image_url;
 
