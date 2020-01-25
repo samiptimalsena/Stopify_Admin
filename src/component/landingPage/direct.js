@@ -1,9 +1,11 @@
+
+  
 import React from 'react'
 import app from '../../firebase/firebase.js'
 import 'firebase/auth'
 import * as firebase from 'firebase/app'
 import {Link} from 'react-router-dom'
-import './direct.css'
+
 
 
 import Paper from '@material-ui/core/Paper'
