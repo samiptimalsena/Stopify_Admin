@@ -9,6 +9,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Paper } from '@material-ui/core'
 import background from '../../images/home_background.jpeg'
 import Container from '@material-ui/core/Container'
+import {registerWithEmail} from '../../firebase/login.js'
 
 const CssTextField = withStyles({
     root: {
@@ -79,7 +80,16 @@ const useStyles=makeStyles((theme)=>({
 
 
 function SignUp(){
-    const classes=useStyles()
+    const classes=useStyles();
+    let email1=React.createRef();
+    let password=React.createRef();
+
+    const handleRegister=(e)=>{
+        e.preventDefault();
+        const data={email:email1.current.value, password:password.current.value};
+        registerWithEmail(data);
+    }
+
     return(
         <Paper className={classes.paperContainer} square>
             <Container className={classes.paper} maxWidth="xs">
@@ -89,7 +99,7 @@ function SignUp(){
             <Typography variant='h5' style={{ color: "white" }}>
                     Sign Up
                 </Typography>
-            <form className={classes.form}>
+            <form className={classes.form} onSubmit={handleRegister}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                 <CssTextField label="First Name" variant="outlined" required type="text" inputProps={{ style: { color: "white" } }}  fullWidth autoFocus />
@@ -98,13 +108,13 @@ function SignUp(){
                 <CssTextField label="Last Name" variant="outlined" required type="text" inputProps={{ style: { color: "white" } }} fullWidth   />
                 </Grid>
                 <Grid item xs={12}>
-                <CssTextField label="Email" variant="outlined"required  type="email" inputProps={{ style: { color: "white" } }} fullWidth  />
+                <CssTextField label="Email" inputRef={email1} variant="outlined"required  type="email" inputProps={{ style: { color: "white" } }} fullWidth  />
                 </Grid>
                 <Grid item xs={12}>
-                <CssTextField label="Password" variant="outlined" required type="password" inputProps={{ style: { color: "white" } }} fullWidth />
+                <CssTextField label="Password" inputRef={password} variant="outlined" required type="password" inputProps={{ style: { color: "white" } }} fullWidth />
                 </Grid>
             </Grid>
-            <Button type="submit" variant="outlined" className={classes.signUp}>Sign Up</Button>
+            <Button type="submit" variant="outlined" className={classes.signUp} >Sign Up</Button>
             </form>
             </Container>
 

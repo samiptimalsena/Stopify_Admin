@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container'
 import { Typography } from '@material-ui/core'
 import TextField from "@material-ui/core/TextField"
 import Button from '@material-ui/core/Button'
+import {loginWithEmail} from '../../firebase/login.js'
 
 
 
@@ -81,6 +82,16 @@ const useStyles = makeStyles((theme) => ({
 
 function SignIn() {
     const classes = useStyles();
+    
+    let email=React.createRef();
+    let password=React.createRef();
+
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        const data={email:email.current.value, password:password.current.value};
+        loginWithEmail(data);
+    }
+
     return (
         <Paper className={classes.paperContainer}>
             <Container className={classes.paper} maxWidth="xs">
@@ -90,9 +101,9 @@ function SignIn() {
                 <Typography variant='h5' style={{ color: "white" }}>
                     Sign In
                 </Typography>
-                <form className={classes.form}>
-                    <CssTextField label="Email" variant="outlined" type="email" inputProps={{ style: { color: "white" } }} fullWidth autoFocus />
-                    <CssTextField label="Password" variant="outlined" type="password" inputProps={{ style: { color: "white" } }} className={classes.text} fullWidth />
+                <form className={classes.form} onSubmit={handleLogin}>
+                    <CssTextField label="Email" variant="outlined" inputRef={email}required type="email" inputProps={{ style: { color: "white" } }} fullWidth autoFocus />
+                    <CssTextField label="Password" variant="outlined" inputRef={password}  required type="password" inputProps={{ style: { color: "white" } }} className={classes.text} fullWidth />
                     <Button type="submit" variant="outlined" className={classes.signIn}>Sign In</Button>
                 </form>
             </Container>
