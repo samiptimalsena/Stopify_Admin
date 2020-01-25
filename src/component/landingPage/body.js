@@ -84,8 +84,9 @@ function Body(){
       <Link to="/signIn" className={classes.link}>
       <Button variant="outlined" className={classes.signIn}><Typography>Sign In</Typography></Button>
       </Link>
-      
+      <Link to="/signUp" className={classes.link}>
       <Button variant="outlined" className={classes.signUp}><Typography>Sign Up</Typography></Button>
+      </Link>
         </Paper>
     )
 }

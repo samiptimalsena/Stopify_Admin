@@ -1,15 +1,14 @@
 import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import {Typography} from '@material-ui/core'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Paper } from '@material-ui/core'
 import background from '../../images/home_background.jpeg'
-import Avatar from '@material-ui/core/Avatar'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Container from '@material-ui/core/Container'
-import { Typography } from '@material-ui/core'
-import TextField from "@material-ui/core/TextField"
-import Button from '@material-ui/core/Button'
-
-
 
 const CssTextField = withStyles({
     root: {
@@ -36,7 +35,7 @@ const CssTextField = withStyles({
     },
 })(TextField);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles=makeStyles((theme)=>({
     paperContainer: {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     paper: {
-        marginTop: theme.spacing(14),
+        marginTop: theme.spacing(10),
         height: '350px',
         display: 'flex',
         flexDirection: 'column',
@@ -63,10 +62,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center'
     },
-    text: {
-        marginTop: theme.spacing(2)
-    },
-    signIn: {
+    
+    signUp: {
         marginTop: theme.spacing(8),
         color: "white",
         borderColor:"white",
@@ -76,27 +73,42 @@ const useStyles = makeStyles((theme) => ({
         }
     }
 
-
 }))
 
-function SignIn() {
-    const classes = useStyles();
-    return (
-        <Paper className={classes.paperContainer}>
+
+
+
+function SignUp(){
+    const classes=useStyles()
+    return(
+        <Paper className={classes.paperContainer} square>
             <Container className={classes.paper} maxWidth="xs">
-                <Avatar className={classes.avatar}>
+            <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
-                </Avatar>
-                <Typography variant='h5' style={{ color: "white" }}>
-                    Sign In
+            </Avatar>
+            <Typography variant='h5' style={{ color: "white" }}>
+                    Sign Up
                 </Typography>
-                <form className={classes.form}>
-                    <CssTextField label="Email" variant="outlined" type="email" inputProps={{ style: { color: "white" } }} fullWidth autoFocus />
-                    <CssTextField label="Password" variant="outlined" type="password" inputProps={{ style: { color: "white" } }} className={classes.text} fullWidth />
-                    <Button type="submit" variant="outlined" className={classes.signIn}>Sign In</Button>
-                </form>
+            <form className={classes.form}>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                <CssTextField label="First Name" variant="outlined" required type="text" inputProps={{ style: { color: "white" } }}  fullWidth autoFocus />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                <CssTextField label="Last Name" variant="outlined" required type="text" inputProps={{ style: { color: "white" } }} fullWidth   />
+                </Grid>
+                <Grid item xs={12}>
+                <CssTextField label="Email" variant="outlined"required  type="email" inputProps={{ style: { color: "white" } }} fullWidth  />
+                </Grid>
+                <Grid item xs={12}>
+                <CssTextField label="Password" variant="outlined" required type="password" inputProps={{ style: { color: "white" } }} fullWidth />
+                </Grid>
+            </Grid>
+            <Button type="submit" variant="outlined" className={classes.signUp}>Sign Up</Button>
+            </form>
             </Container>
+
         </Paper>
     )
 }
-export default SignIn;
+export default SignUp
