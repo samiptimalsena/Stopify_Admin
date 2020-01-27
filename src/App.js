@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Upload from './component/upload/upload.js'
 import LandingPage from './component/landingPage/landingPage.js'
-import Home from './component/Home.js'
+import Home from './component/Home/check_home.js'
 import MyMusic from './component/music/MyMusic.js'
 import {BrowserRouter,Route} from 'react-router-dom'
 import {AuthProvider} from './Auth/auth.js'

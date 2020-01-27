@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import {handleLogout} from '../firebase/login.js'
 import {Link} from 'react-router-dom'
+import {AuthContext} from '../Auth/auth.js'
 
 
 
 export default ()=>{
+    const {currentUser}=useContext(AuthContext)
+    console.log(currentUser.email)
     return(
         <div>
             <button><Link to='myMusic'>

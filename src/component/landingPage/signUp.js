@@ -11,6 +11,7 @@ import background from '../../images/home_background.jpeg'
 import Container from '@material-ui/core/Container'
 import {registerWithEmail} from '../../firebase/login.js'
 
+
 const CssTextField = withStyles({
     root: {
         '& label.Mui-focused': {
@@ -81,12 +82,12 @@ const useStyles=makeStyles((theme)=>({
 
 function SignUp(){
     const classes=useStyles();
-    let email1=React.createRef();
+    let email=React.createRef();
     let password=React.createRef();
 
     const handleRegister=(e)=>{
         e.preventDefault();
-        const data={email:email1.current.value, password:password.current.value};
+        const data={email:email.current.value, password:password.current.value};
         registerWithEmail(data);
     }
 
@@ -102,13 +103,13 @@ function SignUp(){
             <form className={classes.form} onSubmit={handleRegister}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                <CssTextField label="First Name" variant="outlined" required type="text" inputProps={{ style: { color: "white" } }}  fullWidth autoFocus />
+                <CssTextField label="First Name" variant="outlined"  required type="text" inputProps={{ style: { color: "white" } }}  fullWidth autoFocus />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                 <CssTextField label="Last Name" variant="outlined" required type="text" inputProps={{ style: { color: "white" } }} fullWidth   />
                 </Grid>
                 <Grid item xs={12}>
-                <CssTextField label="Email" inputRef={email1} variant="outlined"required  type="email" inputProps={{ style: { color: "white" } }} fullWidth  />
+                <CssTextField label="Email" inputRef={email} variant="outlined"required  type="email" inputProps={{ style: { color: "white" } }} fullWidth  />
                 </Grid>
                 <Grid item xs={12}>
                 <CssTextField label="Password" inputRef={password} variant="outlined" required type="password" inputProps={{ style: { color: "white" } }} fullWidth />
