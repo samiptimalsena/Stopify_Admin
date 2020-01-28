@@ -1,12 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {Avatar} from '@material-ui/core'
 
 const useStyles=makeStyles((theme)=>({
     
@@ -62,7 +59,7 @@ export default (props)=>{
         <Card variant="outlined" className={classes.card}>
             <CardContent>
                 <div className={classes.details}>
-                <img src={props.data["imageURL"]} className={classes.image}/>
+                <img src={props.data["imageURL"]} className={classes.image} alt="musicPic"/>
                 <Typography className={classes.text}>{props.data["name"]}</Typography>
                
                 <DeleteIcon className={classes.deleteIcon}/>

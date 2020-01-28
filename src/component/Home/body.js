@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Paper } from '@material-ui/core'
-import { makeStyles,withStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import background from '../../images/user_background.jpg'
 import { fireStore as db } from '../../firebase/firebase.js'
 import { AuthContext } from '../../Auth/auth.js'
@@ -10,6 +10,7 @@ import MusicNoteOutlinedIcon from '@material-ui/icons/MusicNoteOutlined';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import {useMediaQuery} from 'react-responsive'
+import {Link} from 'react-router-dom'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -61,9 +62,7 @@ function Body() {
     const classes = useStyles();
     const [allSongs, setAllSongs] = useState([]);
     const { currentUser } = useContext(AuthContext);
-    const isDesktop = useMediaQuery({
-        query: '(min-device-width:423px)'
-    })
+    
     const isMobile = useMediaQuery({
         query: '(max-device-width:422px)'
     })
@@ -98,9 +97,11 @@ function Body() {
                 </div>
                 {allSongs.map((sample) =>
                     <SongCard key={sample["name"]} data={sample} />)}
+              <Link to="/upload">
               {isMobile && <Fab color="primary" aria-label="add" className={classes.fab} style={{backgroundColor:"gray"}}>
                     <AddIcon  />
                 </Fab>}
+                </Link>
             </Container>
         </Paper>
     )

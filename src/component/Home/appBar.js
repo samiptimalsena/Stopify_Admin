@@ -14,6 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import {AuthContext} from '../../Auth/auth.js'
 import {Button} from "@material-ui/core"
 import {useMediaQuery} from 'react-responsive'
+import {Link} from 'react-router-dom'
 
 const StyledMenuItem = withStyles(theme => ({
     root: {
@@ -74,7 +75,9 @@ function Bar() {
         <AppBar position='static' className={classes.Appbar}>
             <Toolbar>
                 <img src={Logo} style={{ height: "30px" }} alt="Logo" />
+                <Link to="/upload" style={{textDecoration:"none"}}>
                {isDesktop && <Button className={classes.uploadButton}>Upload</Button> }
+               </Link>
                 <IconButton onClick={handleClick} style={{color:"white"}} className={classes.menuIcon}><AccountCircleOutlinedIcon/></IconButton>
                 <Menu anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} >
                 <MenuItem>
