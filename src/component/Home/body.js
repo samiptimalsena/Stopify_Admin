@@ -75,7 +75,7 @@ export default ()=> {
             .then((querySnapshot) => {
 
                 const songs = querySnapshot.docs.map((el) => el.data())
-                console.log(currentUser.uid);
+                
                 setAllSongs(songs);
                 setFetching(false)
 
@@ -86,9 +86,9 @@ export default ()=> {
 
     }
     useEffect(() => {
-        console.log("loading");
+        
         getSongInfo();
-    },[])
+    },[allSongs])
 
     
 
