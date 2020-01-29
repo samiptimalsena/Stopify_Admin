@@ -11,7 +11,6 @@ import Button from '@material-ui/core/Button'
 import {loginWithEmail} from '../../firebase/login.js'
 
 
-
 const CssTextField = withStyles({
     root: {
         '& label.Mui-focused': {
@@ -101,10 +100,12 @@ function SignIn() {
                 <Typography variant='h5' style={{ color: "white" }}>
                     Sign In
                 </Typography>
-                <form className={classes.form} onSubmit={handleLogin}>
+                <form className={classes.form} onSubmit={handleLogin} action="/home">
                     <CssTextField label="Email" variant="outlined" inputRef={email}required type="email" inputProps={{ style: { color: "white" } }} fullWidth autoFocus />
                     <CssTextField label="Password" variant="outlined" inputRef={password}  required type="password" inputProps={{ style: { color: "white" } }} className={classes.text} fullWidth />
+                    
                     <Button type="submit" variant="outlined" className={classes.signIn}>Sign In</Button>
+                   
                 </form>
             </Container>
         </Paper>

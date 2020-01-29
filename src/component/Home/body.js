@@ -11,6 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import {useMediaQuery} from 'react-responsive'
 import {Link} from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,14 +59,16 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function Body() {
-    const classes = useStyles();
-    const [allSongs, setAllSongs] = useState([]);
-    const { currentUser } = useContext(AuthContext);
+export default ()=> {
     
+    const { currentUser } = useContext(AuthContext);
+    const [allSongs, setAllSongs] = useState([]);
+    const [fetching,setFetching]=useState(true)
+    const classes = useStyles(); 
     const isMobile = useMediaQuery({
         query: '(max-device-width:422px)'
     })
+
 
     const getSongInfo = async () => {
         db.collection("music").where("uid", "==", currentUser.uid).get()
@@ -74,6 +77,7 @@ function Body() {
                 const songs = querySnapshot.docs.map((el) => el.data())
                 console.log(currentUser.uid);
                 setAllSongs(songs);
+                setFetching(false)
 
             }
             ).catch((error) => {
@@ -81,11 +85,12 @@ function Body() {
             })
 
     }
-
     useEffect(() => {
         console.log("loading");
         getSongInfo();
-    }, [])
+    },[])
+
+    
 
     return (
 
@@ -95,8 +100,15 @@ function Body() {
                     <MusicNoteOutlinedIcon className={classes.musicIcon} />
                     <Typography className={classes.title}>Songs</Typography>
                 </div>
-                {allSongs.map((sample) =>
-                    <SongCard key={sample["name"]} data={sample} />)}
+                {//Loading data
+            fetching === true ? (
+                <CircularProgress/>
+              ) : allSongs.length === 0 ? (
+                <h4>No data</h4>
+              ) : (
+                  allSongs.map((sample) =>
+                      <SongCard key={sample["name"]} data={sample} /> )
+              )}
               <Link to="/upload">
               {isMobile && <Fab color="primary" aria-label="add" className={classes.fab} style={{backgroundColor:"gray"}}>
                     <AddIcon  />
@@ -107,4 +119,3 @@ function Body() {
     )
 }
 
-export default Body;

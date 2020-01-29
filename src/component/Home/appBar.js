@@ -18,11 +18,13 @@ import {Link} from 'react-router-dom'
 
 const StyledMenuItem = withStyles(theme => ({
     root: {
+        color:"black",
       '&:hover': {
         backgroundColor: "black",
         color:"white"
         
       },
+
     },
   }))(MenuItem);
 
@@ -88,7 +90,9 @@ function Bar() {
                 </MenuItem>
                 <b><p style={{textAlign:"right",marginTop:"-10px"}}>{currentUser.email}</p></b>
                     <hr/>
+                    <Link to="/" style={{textDecoration:"none"}}>
                     <StyledMenuItem onClick={handleLogout}>Logout</StyledMenuItem>
+                    </Link>
                 </Menu>
             </Toolbar>
         </AppBar>
