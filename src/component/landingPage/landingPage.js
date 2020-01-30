@@ -16,11 +16,9 @@ export default ()=>{
     return(
         <div>
            <AppBar/>
-            <BrowserRouter>
-                <Route exact path='/'><Body/></Route>
-                <Route exact path='/signIn'><SignIn/></Route>
-                <Route exact path='/signUp'><SignUp/></Route>
-            </BrowserRouter>
+           <Route exact path='/'><Body/></Route>
+           <Route exact path='/signIn'><SignIn/></Route>
+           <Route exact path='/signUp'><SignUp/></Route> 
         </div>
     )   
 }
