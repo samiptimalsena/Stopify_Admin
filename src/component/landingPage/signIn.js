@@ -100,7 +100,7 @@ function SignIn() {
                 <Typography variant='h5' style={{ color: "white" }}>
                     Sign In
                 </Typography>
-                <form className={classes.form} onSubmit={handleLogin} action="/home">
+                <form className={classes.form} onSubmit={handleLogin} >
                     <CssTextField label="Email" variant="outlined" inputRef={email}required type="email" inputProps={{ style: { color: "white" } }} fullWidth autoFocus />
                     <CssTextField label="Password" variant="outlined" inputRef={password}  required type="password" inputProps={{ style: { color: "white" } }} className={classes.text} fullWidth />
                     

@@ -78,6 +78,7 @@ export default ()=> {
                 
                 setAllSongs(songs);
                 setFetching(false)
+                
 
             }
             ).catch((error) => {
@@ -104,10 +105,10 @@ export default ()=> {
             fetching === true ? (
                 <CircularProgress/>
               ) : allSongs.length === 0 ? (
-                <h4>No data</h4>
+                <h4>You have not uploaded any Songs.</h4>
               ) : (
                   allSongs.map((sample) =>
-                      <SongCard key={sample["name"]} data={sample} /> )
+                      <SongCard key={sample["audioURL"]} data={sample} /> )
               )}
               <Link to="/upload">
               {isMobile && <Fab color="primary" aria-label="add" className={classes.fab} style={{backgroundColor:"gray"}}>
