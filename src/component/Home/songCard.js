@@ -74,7 +74,7 @@ export default (props) => {
 
     function toDelete() {
         console.log(props.data["name"])
-        db.collection("music").where("audioURL", "==", props.data["audioURL"]).get()
+        db.collection("music").where("audioUrl", "==", props.data["audioUrl"]).get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(function (doc) {
                     doc.ref.delete();
@@ -92,7 +92,7 @@ export default (props) => {
         <Card variant="outlined" className={classes.card}>
             <CardContent>
                 <div className={classes.details}>
-                    <img src={props.data["imageURL"]} className={classes.image} alt="musicPic" />
+                    <img src={props.data["imageUrl"]} className={classes.image} alt="musicPic" />
                     <Typography className={classes.text}>{props.data["name"]}</Typography>
 
                     <DeleteIcon className={classes.deleteIcon} onClick={handleClickOpen} />

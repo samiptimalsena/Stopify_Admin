@@ -108,7 +108,7 @@ export default ()=> {
                 <h4>You have not uploaded any Songs.</h4>
               ) : (
                   allSongs.map((sample) =>
-                      <SongCard key={sample["audioURL"]} data={sample} /> )
+                      <SongCard key={sample["audioUrl"]} data={sample} /> )
               )}
               <Link to="/upload">
               {isMobile && <Fab color="primary" aria-label="add" className={classes.fab} style={{backgroundColor:"gray"}}>

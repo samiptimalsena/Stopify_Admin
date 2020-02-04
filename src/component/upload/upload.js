@@ -1,16 +1,12 @@
-import React,{Component} from 'react';
-import {AuthContext} from '../../Auth/auth.js'
-import Uploader from './uploader.js'
-class Upload extends Component{
-    render(){
+import React from 'react';
+import AppBar from './appBar.js'
+import Body from './body.js'
+
+export default ()=>{
     return(
         <div>
-            <AuthContext.Consumer>
-                {({currentUser})=>(
-                    <Uploader userId={currentUser.uid}/>
-                )}
-            </AuthContext.Consumer>
+        <AppBar/>
+        <Body/>
         </div>
     )
-}}
-export default Upload;
+}

@@ -226,9 +226,9 @@ export default ()=>{
                 db.collection("music").add({
                     album:Album,
                     artist:Artist,
-                    audioURL:downloadURL,
+                    audioUrl:downloadURL,
                     genre:Genre,
-                    imageURL:imageURL,
+                    imageUrl:imageURL,
                     name:Name,
                     uid:currentUser.uid
                 })
