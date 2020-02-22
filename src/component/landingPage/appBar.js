@@ -13,12 +13,12 @@ const useStyles=makeStyles({
     Appbar:{
         backgroundColor:"black",
         height:"60px",
-        margin:"0px"
+        margin:"0px",
+        width:"100%"
       },
       homeIcon:{
         color:'white',
-        marginLeft:'155px',
-        marginTop:'5px',
+        marginTop:"5px",
         '&:hover': {
           color: '#06A10B'
         }
@@ -29,11 +29,10 @@ const useStyles=makeStyles({
         textDecoration:'none'
       }
     },
-    '@media (min-width:423px)':{
+    '@media (min-width:924px)':{
         linkButton:{
-          marginLeft:'1150px',
           color:'white',
-          marginTop:"0px",
+         margin:"0px 0px 0px auto",
           '&:hover':{
             color:'#06A10B'
           }
@@ -51,20 +50,22 @@ const useStyles=makeStyles({
 function Bar() {
     const classes = useStyles();
     const isDesktop = useMediaQuery({
-        query: '(min-device-width:423px)'
+        query: '(min-device-width:924px)'
     })
     const isMobile = useMediaQuery({
-        query: '(max-device-width:422px)'
+        query: '(max-device-width:923px)' 
     })
     return (
         
         <AppBar position='static' className={classes.Appbar}>
             <Toolbar>
                 <img src={Logo} style={{ height: "30px" }} alt="Logo" />
+                <div style={{marginLeft:"auto"}}>
                 <a href="https://stopify.netlify.com/" className={classes.link}>
                     {isMobile && <HomeIcon className={classes.homeIcon} />}
                     {isDesktop && <Button className={classes.linkButton}>Go to stopify</Button>}
                 </a>
+                </div>
             </Toolbar>
         </AppBar>
        

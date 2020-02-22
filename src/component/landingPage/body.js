@@ -11,10 +11,11 @@ const useStyles=makeStyles((theme)=>({
     paperContainer: {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        height: '92vh',
+        height: window.innerHeight,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        width:"100%"
     },
     title:{
         color:'whitesmoke',
@@ -51,7 +52,7 @@ const useStyles=makeStyles((theme)=>({
       link:{
         textDecoration:'none'
       },
-      '@media (min-width:423px)':{
+      '@media (min-width:924px)':{
         title:{
           paddingTop:"30px"
         },
