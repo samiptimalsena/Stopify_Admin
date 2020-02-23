@@ -15,9 +15,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const useStyles = makeStyles((theme) => ({
 
     card: {
-        width: "400px",
+        width: "100%",
         height: "60px",
-        marginLeft: "-12px",
         marginTop: "5px",
         backgroundColor: "rgba(255,255,255,.3)",
         borderRadius: "20px"
