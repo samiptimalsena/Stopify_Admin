@@ -40,8 +40,8 @@ const useStyles=makeStyles(theme=>({
     paperContainer:{
         backgroundImage:`url(${background})`,
         backgroundSize:"100%",
-        height:"92vh",
-        widht:'auto'
+        height:window.innerHeight-60,
+        width:"100%"
     },
     imageTitle:{
         marginTop:"2%",
@@ -82,8 +82,7 @@ const useStyles=makeStyles(theme=>({
     },
     titleHolder:{
         backgroundColor:"gray",
-        width: "410px",
-        marginLeft: "-16px",
+        width: "100%",
         height: "60px",
         alignItems: "center",
         borderRadius: "10px"

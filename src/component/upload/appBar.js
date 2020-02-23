@@ -34,15 +34,11 @@ const useStyles=makeStyles({
         margin:"0px"
       },
       menuIcon:{
-          marginLeft:"38%",
-          marginTop:"3px",
+          marginLeft:"auto",
+          marginTop:"5px",
         
-      },
-      
-    '@media (min-width:423px)':{
-       menuIcon:{
-           marginLeft:"83%"
-       } }})
+      }
+})
 
 
 
