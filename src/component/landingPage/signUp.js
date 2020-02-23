@@ -41,14 +41,14 @@ const useStyles=makeStyles((theme)=>({
     paperContainer: {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        height: '92vh',
+        height: window.innerHeight,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
     paper: {
         marginTop: theme.spacing(10),
-        height: '350px',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center'

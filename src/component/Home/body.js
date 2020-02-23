@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     paperContainer: {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        height: '92vh',
+        height: window.innerHeight-60,
         display: 'flex',
         flexDirection: 'column',
 
@@ -28,8 +28,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: "row",
         backgroundColor: "gray",
-        width: "410px",
-        marginLeft: "-16px",
+        width: "100%",
         height: "60px",
         alignItems: "center",
         borderRadius: "10px"
@@ -42,11 +41,13 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "30px",
         marginTop: "-5px"
     },
-    fab:{
-        marginLeft:"320px",
-        marginTop:"300px"
-    },
-    '@media (min-width:423px)':{
+        fab: {
+            position: 'absolute',
+            bottom: theme.spacing(2),
+            right: theme.spacing(2),
+          },
+    
+    '@media (min-width:924px)':{
         titleHolder:{
             width:"600px",
             marginLeft:"-115px",
@@ -89,7 +90,17 @@ export default ()=> {
     useEffect(() => {
         
         getSongInfo();
-    },[allSongs])
+        db.collection("music")
+        .where("uid", "==", currentUser.uid)
+        .onSnapshot(
+          function(_) {
+            getSongInfo();
+          },
+          function(error) {
+            console.log(error, "Error");
+          }
+        );
+    },[])
 
     
 
@@ -111,9 +122,10 @@ export default ()=> {
                       <SongCard key={sample["audioUrl"]} data={sample} /> )
               )}
               <Link to="/upload">
-              {isMobile && <Fab color="primary" aria-label="add" className={classes.fab} style={{backgroundColor:"gray"}}>
-                    <AddIcon  />
-                </Fab>}
+              {isMobile && <div className={classes.fab}> 
+                <Fab color="primary" aria-label="add"  style={{backgroundColor:"gray"}}>
+                    <AddIcon/>
+                </Fab></div>}
                 </Link>
             </Container>
         </Paper>

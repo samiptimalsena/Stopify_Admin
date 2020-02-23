@@ -11,7 +11,7 @@ const useStyles=makeStyles((theme)=>({
     paperContainer: {
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        height: window.innerHeight,
+        height: window.innerHeight-60,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

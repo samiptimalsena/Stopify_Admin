@@ -33,22 +33,19 @@ const useStyles=makeStyles({
     Appbar:{
         backgroundColor:"black",
         height:"60px",
-        margin:"0px"
+        margin:"0px",
+        width:"100%"
       },
       menuIcon:{
-          marginLeft:"145px",
           marginTop:"3px",
         
       },
       
-    '@media (min-width:423px)':{
-       menuIcon:{
-           marginLeft:"20px"
-       } ,
+    '@media (min-width:924px)':{
        uploadButton:{
-        marginLeft:'1150px',
         color:'white',
         marginTop:"0px",
+        marginRight:20,   
         '&:hover':{
           color:'#06A10B'
         }
@@ -60,7 +57,7 @@ function Bar() {
     const {currentUser}=useContext(AuthContext)
     const classes = useStyles();
     const isDesktop = useMediaQuery({
-        query: '(min-device-width:423px)'
+        query: '(min-device-width:924px)'
     })
 
 
@@ -77,10 +74,12 @@ function Bar() {
         <AppBar position='static' className={classes.Appbar}>
             <Toolbar>
                 <img src={Logo} style={{ height: "30px" }} alt="Logo" />
-                <Link to="/upload" style={{textDecoration:"none"}}>
-               {isDesktop && <Button className={classes.uploadButton}>Upload</Button> }
+                <div style={{marginLeft:"auto"}}>
+                <Link to="/upload" style={{textDecoration:"none"}}>    
+               {isDesktop && <Button className={classes.uploadButton}>Upload</Button>} 
                </Link>
                 <IconButton onClick={handleClick} style={{color:"white"}} className={classes.menuIcon}><AccountCircleOutlinedIcon/></IconButton>
+                </div>
                 <Menu anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} >
                 <MenuItem>
                 <ListItemIcon>
